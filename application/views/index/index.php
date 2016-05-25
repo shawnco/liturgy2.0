@@ -52,12 +52,25 @@ First split by commas. Once you've done that, you can have elements in one of se
 ** Replace the forward slash with a hyphen and return<br />
 * If there are none of these<Br />
 ** Just return the input string<br />
+
 <?php
-echo '<p>Today is the ' . $season['day'] . 'th day of week ' . $season['week'] . ' of ' . $season['season'] . '</p>';
-echo '<p>Click a liturgy scheme to begin:</p>';
-echo '<ul>';
-foreach($schemes as $s){
-     echo '<li><a href="liturgy/' . $s['id'] . '">' . $s['name'] . '</a></li>';
+
+$i = 0;
+echo '<div class="row">';
+foreach($everything as $title => $content){
+     echo '<div class="col-sm-4">';
+     echo '<h1>' . $title . '</h1>';
+     echo '<ul>';
+     foreach($content as $c){
+          echo '<li>' . $c['name'] . '</li>';
+     }
+     echo '<li>New...</li>';
+     echo '</ul>';
+     echo '</div>';
+     $i++;
+     if($i == 2){
+          $i = 0;
+          echo '</div><div class="row">';
+     }
 }
-echo '</ul>';
-?>
+echo '</div>';

@@ -13,7 +13,7 @@ class Index extends MY_Controller {
     }
     
     public function index(){
-        $this->data['schemes'] = $this->Index_model->getLiturgies();
+        $this->data['everything'] = $this->Index_model->getEverything();
         $this->display('index/index', $this->data);
     }
 }
