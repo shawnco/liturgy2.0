@@ -54,23 +54,28 @@ First split by commas. Once you've done that, you can have elements in one of se
 ** Just return the input string<br />
 
 <?php
-
 $i = 0;
-echo '<div class="row">';
+echo '<div class="clearfix">';
 foreach($everything as $title => $content){
-     echo '<div class="col-sm-4">';
+     echo '<div class="module col-sm-4">';
      echo '<h1>' . $title . '</h1>';
      echo '<ul>';
-     foreach($content as $c){
-          echo '<li>' . $c['name'] . '</li>';
+     if(count($content) < 1){
+          echo '<li>There are no ' . strtolower($title) . '</li>';
+     }else{
+          foreach($content as $c){
+               echo '<li><a href="edit/' . strtolower($title) . '/' . $c['id'] . '">' . $c['name'] . '</li>';
+          }
      }
-     echo '<li>New...</li>';
+     echo '<li><a href="create/' . strtolower($title) . '">Create new...</a></li>';
      echo '</ul>';
      echo '</div>';
-     $i++;
      if($i == 2){
+          echo '</div><div class="clearfix">';
           $i = 0;
-          echo '</div><div class="row">';
+     }else{
+          $i++;
      }
 }
 echo '</div>';
+?>

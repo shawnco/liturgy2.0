@@ -46,11 +46,11 @@ class MY_Controller extends CI_Controller {
       
     public function addStyle($fname){
         if(gettype($fname) === 'string'){
-            $this->data['css'][] = base_url() . '/assets/css/' . $fname;
+            $this->data['css'][] = base_url() . 'assets/css/' . $fname;
             return TRUE;
         }else if(gettype($fname) === 'array'){
             foreach($fname as $f){
-                $this->data['css'][] = base_url() . '/assets/css/' . $f;
+                $this->data['css'][] = base_url() . 'assets/css/' . $f;
             }
             return TRUE;
         }else{

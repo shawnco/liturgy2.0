@@ -10,6 +10,7 @@ class Index extends MY_Controller {
         parent::__construct();
         $this->data['title'] = 'Index';
         $this->load->model('Index_model');
+        $this->addStyle('index.css');
     }
     
     public function index(){

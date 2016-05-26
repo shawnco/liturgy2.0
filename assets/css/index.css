@@ -1,0 +1,15 @@
+.module {
+     border: 1px solid black;
+     padding: 0px 0px 0px 0px;
+}
+
+.module h1 {
+     width: 100%;
+     margin: 0;
+     color: white;
+     background-color: #3d4047;
+     padding-left: 5px;
+     padding-top: 5px;
+     padding-right: 1px;
+     padding-bottom: 5px;
+}
