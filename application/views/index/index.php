@@ -64,7 +64,7 @@ foreach($everything as $title => $content){
           echo '<li>There are no ' . strtolower($title) . '</li>';
      }else{
           foreach($content as $c){
-               echo '<li><a href="edit/' . strtolower($title) . '/' . $c['id'] . '">' . $c['name'] . '</li>';
+               echo '<li><a href="edit/' . strtolower($title) . '/' . $c['id'] . '">' . $c['name'] . '</a></li>';
           }
      }
      echo '<li><a href="create/' . strtolower($title) . '">Create new...</a></li>';
