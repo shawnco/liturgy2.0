@@ -1,4 +1,4 @@
-<div class='row'>
+<div class='col-sm-3'>
      <div class='col-sm-1 song-control-icons'>
           <a href='#' id='add-row'><i class='fa fa-plus-circle' aria-hidden='true'></i></a>
           <a href='#' id='remove-row'><i class='fa fa-minus-circle' aria-hidden='true'></i></a>
@@ -7,14 +7,14 @@
           <?php
           $data = array(
               'class' => 'border form-control',
-              'id' => 'song_text',
-              'name' => 'song_text',
-              'rows' => 10,
+              'id' => 'weekly_text',
+              'name' => 'weekly_text',
+              'rows' => 5,
               'cols' => 40
           );
           echo form_textarea($data);
           ?>
-     </div>
+     </div>  
      <div class='col-sm-3'>
           <div>
                <?php

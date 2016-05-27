@@ -7,35 +7,39 @@
           <?php
           $data = array(
               'class' => 'border form-control',
-              'id' => 'song_text',
-              'name' => 'song_text',
-              'rows' => 10,
+              'id' => 'weekly_text',
+              'name' => 'weekly_text',
+              'rows' => 5,
               'cols' => 40
           );
           echo form_textarea($data);
           ?>
-     </div>
+     </div>   
      <div class='col-sm-3'>
           <div>
                <?php
-               echo form_label('Image: ', 'upload_image');
-               $data = array(
-                   'class' => 'border',
-                   'id' => 'upload_image',
-                   'name' => 'upload_image'
+               echo form_label('Season:', 'season');
+               $options = array(
+                   0 => 'temp',
+                   1 => 'placeholder'
                );
-               echo form_upload($data);
+               $data = array(
+                   'class' => 'border form-control',
+                   'id' => 'season',
+                   'name' => 'season'
+               );
+               echo form_dropdown('season', $options, null, $data);
                ?>
           </div>
           <div>
                <?php
-               echo form_label('Music: ', 'upload_music');
+               echo form_label('Week:', 'week');
                $data = array(
-                   'class' => 'border',
-                   'id' => 'upload_music',
-                   'name' => 'upload_music'
+                   'class' => 'border form-control',
+                   'id' => 'week',
+                   'name' => 'week'
                );
-               echo form_upload($data);
+               echo form_input($data);
                ?>
           </div>
      </div>
