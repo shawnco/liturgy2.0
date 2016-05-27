@@ -15,7 +15,7 @@ class MY_Controller extends CI_Controller {
         $this->data['js'] = array();
         $this->data['css'] = array();
         $this->addStyle(array('style.css', 'font-awesome/css/font-awesome.min.css'));
-        $this->addScript(array('default.js', 'jquery.min.js', 'jquery-ui/jquery-ui.min.js', 'bootstrap/js/bootstrap.min.js'));        
+        $this->addScript(array('jquery.min.js', 'jquery-ui/jquery-ui.min.js', 'bootstrap/js/bootstrap.min.js', 'default.js'));        
     }
     
     public function display($views, $data){

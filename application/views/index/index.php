@@ -64,10 +64,10 @@ foreach($everything as $title => $content){
           echo '<li>There are no ' . strtolower($title) . '</li>';
      }else{
           foreach($content as $c){
-               echo '<li><a href="edit/' . strtolower($title) . '/' . $c['id'] . '">' . $c['name'] . '</a></li>';
+               echo '<li><a href="edit/' . str_replace(' ', '_', strtolower($title)) . '/' . $c['id'] . '">' . $c['name'] . '</a></li>';
           }
      }
-     echo '<li><a href="create/' . strtolower($title) . '">Create new...</a></li>';
+     echo '<li><a href="create/' . str_replace(' ', '_', strtolower($title)) . '">Create new...</a></li>';
      echo '</ul>';
      echo '</div>';
      if($i == 2){
