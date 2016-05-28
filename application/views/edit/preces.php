@@ -2,10 +2,6 @@
      <div class='col-sm-3'>
           <?php
           echo form_label('Season:', 'season');
-          $options = array(
-              0 => 'temp',
-              1 => 'placeholder'
-          );
           $data = array(
               'class' => 'border form-control',
               'id' => 'season',
@@ -24,8 +20,8 @@
           <?php
           $data = array(
               'class' => 'border form-control',
-              'id' => 'song_text',
-              'name' => 'song_text',
+              'id' => 'text',
+              'name' => 'text',
               'rows' => 10,
               'cols' => 40
           );

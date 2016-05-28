@@ -3,11 +3,16 @@
 class Edit extends MY_Controller {
      public function __construct(){
           parent::__construct();
+          $this->load->model('Edit_model');
           $this->data['title'] = 'Edit Page';
           $this->addStyle('edit.css');
      }
      
      public function index($id = null){
+          $this->pages = array('edit/open_fragment.php', 'edit/', 'edit/close_fragment.php');
+          $this->data['element'] = $id;
+          $this->data['types'] = $this->Edit_model->getTypes();
+          $this->data['options'] = array('Epiphany', 'Lent', 'Easter', 'Ordinary', 'Advent', 'Christmas');
           $this->load->helper('form');
           switch($id){
                case 'hymns':
@@ -42,30 +47,37 @@ class Edit extends MY_Controller {
      }
      
      private function song(){
-          $this->display('edit/song.php', $this->data);
+          $this->pages[1] .= 'song.php'; 
+          $this->display($this->pages, $this->data);
      }
      
      private function weekly(){
-          $this->display('edit/weekly.php', $this->data);
+          $this->pages[1] .= 'weekly.php';
+          $this->display($this->pages, $this->data);
      }
      
      private function prayer(){
-          $this->display('edit/prayer.php', $this->data);
+          $this->pages[1] .= 'prayer.php';
+          $this->display($this->pages, $this->data);
      }
      
      private function psalm(){
-          $this->display('edit/psalm.php', $this->data);
+          $this->pages[1] .= 'psalm.php';
+          $this->display($this->pages, $this->data);
      }
      
      private function preces(){
-          $this->display('edit/preces.php', $this->data);
+          $this->pages[1] .= 'preces.php';
+          $this->display($this->pages, $this->data);
      }
      
      private function external(){
-          $this->display('edit/external.php', $this->data);
+          $this->pages[1] .= 'external.php';
+          $this->display($this->pages, $this->data);
      }
      
      private function antiphon(){
-          $this->display('edit/antiphon.php', $this->data);
+          $this->pages[1] .= 'antiphon.php';
+          $this->display($this->pages, $this->data);
      }
 }

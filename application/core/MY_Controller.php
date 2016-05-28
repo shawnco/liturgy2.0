@@ -24,7 +24,7 @@ class MY_Controller extends CI_Controller {
             $this->load->view($views, $data);
         }else{
             foreach($views as $v){
-                $this->load->views($v, $data);
+                $this->load->view($v, $data);
             }
         }
         $this->load->view('template/footer', $data);
