@@ -57,5 +57,9 @@ class MY_Controller extends CI_Controller {
             return FALSE;
         }
     }    
+    
+    public function message($type, $msg){
+         return json_encode(array('type' => $type, 'message' => $msg));
+    }
 }
 ?>

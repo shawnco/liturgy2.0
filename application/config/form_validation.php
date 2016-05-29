@@ -13,31 +13,31 @@ $config = array(
             'rules' => 'required|numeric|greater_than[0]|less_than[29]'
         ),
         array(
-            'field' => 'song_text',
+            'field' => 'song_text[]',
             'label' => 'Song Text',
             'rules' => 'required'
         )
     ),
     'external' => array(
         array(
-            'field' => 'url',
+            'field' => 'url[]',
             'label' => 'URL',
             'rules' => 'required'
         )
     ),
     'prayer' => array(
         array(
-            'field' => 'weekly_text',
+            'field' => 'weekly_text[]',
             'label' => 'Text',
             'rules' => 'required'
         )/*,
         array(
-            'field' => 'upload_image',
+            'field' => 'upload_image[]',
             'label' => 'Image',
             'rules' => 'callback_validate_image'
         ),
         array(
-            'field' => 'upload_music',
+            'field' => 'upload_music[]',
             'field' => 'Music',
             'rules' => 'callback_validate_music'
         )*/
@@ -49,51 +49,51 @@ $config = array(
             'rules' => 'required'
         ),        
         array(
-            'field' => 'text',
+            'field' => 'text[]',
             'label' => 'Text',
             'rules' => 'required'
         )/*,
         array(
-            'field' => 'upload_image',
+            'field' => 'upload_image[]',
             'label' => 'Image',
             'rules' => 'callback_validate_image'
         ),
         array(
-            'field' => 'upload_music',
+            'field' => 'upload_music[]',
             'field' => 'Music',
             'rules' => 'callback_validate_music'
         )*/
     ),
     'psalm' => array(
         array(
-            'field' => 'psalm_address',
+            'field' => 'psalm_address[]',
             'label' => 'Psalm Address',
             'rules' => 'required'
         )/*,
         array(
-            'field' => 'upload_image',
+            'field' => 'upload_image[]',
             'label' => 'Image',
             'rules' => 'callback_validate_image'
         ),
         array(
-            'field' => 'upload_music',
+            'field' => 'upload_music[]',
             'field' => 'Music',
             'rules' => 'callback_validate_music'
         )*/            
     ),
     'song' => array(
         array(
-            'field' => 'song_text',
+            'field' => 'song_text[]',
             'label' => 'Song Text',
             'rules' => 'required'
         )/*,
         array(
-            'field' => 'upload_image',
+            'field' => 'upload_image[]',
             'label' => 'Image',
             'rules' => 'callback_validate_image'
         ),
         array(
-            'field' => 'upload_music',
+            'field' => 'upload_music[]',
             'field' => 'Music',
             'rules' => 'callback_validate_music'
         )*/
@@ -105,7 +105,7 @@ $config = array(
             'rules' => 'required'
         ),
         array(
-            'field' => 'weekly_text',
+            'field' => 'weekly_text[]',
             'label' => 'Text',
             'rules' => 'required'
         ),  

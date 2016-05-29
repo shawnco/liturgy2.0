@@ -29,7 +29,7 @@
           $data = array(
               'class' => 'border form-control',
               'id' => 'weekly_text',
-              'name' => 'weekly_text',
+              'name' => 'weekly_text[]',
               'rows' => 5,
               'cols' => 40
           );

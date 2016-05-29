@@ -8,7 +8,7 @@
           $data = array(
               'class' => 'border form-control',
               'id' => 'psalm_address',
-              'name' => 'psalm_address',
+              'name' => 'psalm_address[]',
           );
           echo form_input($data);
           ?>
@@ -19,7 +19,7 @@
           $data = array(
               'class' => 'border',
               'id' => 'upload_image',
-              'name' => 'upload_image'
+              'name' => 'upload_image[]'
           );
           echo form_upload($data);
           ?>
@@ -30,7 +30,7 @@
           $data = array(
               'class' => 'border',
               'id' => 'upload_music',
-              'name' => 'upload_music'
+              'name' => 'upload_music[]'
           );
           echo form_upload($data);
           ?>

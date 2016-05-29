@@ -5,6 +5,7 @@ class Create extends MY_Controller {
           parent::__construct();
           $this->load->model('Create_model');
           $this->addStyle('edit.css');
+          $this->addScript('create.js');
      }
      
      public function index($id = null){
@@ -88,38 +89,66 @@ class Create extends MY_Controller {
      }
      
      public function add(){
+          echo $this->message('adding begun');
+          $this->load->library('form_validation');
           // Switch to the proper method based on what we're dealing with.
           $id = $this->input->post('element');
-          switch($id){
-               case 'hymns':
-                    $this->Create_model->addSong(HYMN); break;
-               case 'canticles':
-                    $this->Create_model->addSong(CANTICLE); break;
-               case 'collects':
-                    $this->Create_model->addWeekly(COLLECT); break;
-               case 'readings':
-                    $this->Create_model->addWeekly(READING); break;
-               case 'confessions':
-                    $this->Create_model->addWeekly(CONFESSION); break;
-               case 'prayers':
-                    $this->Create_model->addPrayer(PRAYER); break;
-               case 'psalms':
-                    $this->Create_model->addPsalm(PSALM); break;
-               case 'responsories':
-                    $this->Create_model->addPreces(RESPONSORY); break;
-               case 'versicles':
-                    $this->Create_model->addPreces(VERSICLE); break;
-               case 'externals';
-                    echo 'YAY3';
-                    $this->Create_model->addExternal(EXTERNAL); break;
-               case 'canticle_antiphons':
-                    $this->Create_model->addAntiphon(CANTICLE_ANTIPHON); break;
-               case 'psalm_antiphons':
-                    $this->Create_model->addAntiphon(PSALM_ANTIPHON); break;
-               default:
-                    break;
-          }  
+          if(in_array($id, array('hymns', 'canticles'))){
+               $validation = 'song';
+          }else if(in_array($id, array('collects', 'readings', 'confessions'))){
+               $validation = 'weekly';
+          }else if(in_array($id, array('prayers'))){
+               $validation = 'prayer';
+          }else if(in_array($id, array('psalms'))){
+               $validation = 'psalm';
+          }else if(in_array($id, array('responsories', 'versicles'))){
+               $validation = 'preces';
+          }else if(in_array($id, array('externals'))){
+               $validation = 'external';
+          }else if(in_array($id, array('canticle_antiphons', 'psalm_antiphons'))){
+               $validation = 'antiphon';
+          }else{
+               echo $this->message('error', 'Invalid element type!');
+          }
+          if($this->form_validation->run($validation) === FALSE){
+               echo $this->message('error', validation_errors());
+          }else{
+               switch($id){
+                    case 'hymns':
+                         $res = $this->Create_model->addSong(HYMN); break;
+                    case 'canticles':
+                         $res = $this->Create_model->addSong(CANTICLE); break;
+                    case 'collects':
+                         $res = $this->Create_model->addWeekly(COLLECT); break;
+                    case 'readings':
+                         $res = $this->Create_model->addWeekly(READING); break;
+                    case 'confessions':
+                         $res = $this->Create_model->addWeekly(CONFESSION); break;
+                    case 'prayers':
+                         $res = $this->Create_model->addPrayer(PRAYER); break;
+                    case 'psalms':
+                         $res = $this->Create_model->addPsalm(PSALM); break;
+                    case 'responsories':
+                         $res = $this->Create_model->addPreces(RESPONSORY); break;
+                    case 'versicles':
+                         $res = $this->Create_model->addPreces(VERSICLE); break;
+                    case 'externals';
+                         $res = $this->Create_model->addExternal(EXTERNAL); break;
+                    case 'canticle_antiphons':
+                         $res = $this->Create_model->addAntiphon(CANTICLE_ANTIPHON); break;
+                    case 'psalm_antiphons':
+                         $res = $this->Create_model->addAntiphon(PSALM_ANTIPHON); break;
+                    default:
+                         $res = FALSE;
+                         break;
+               }  
+               if($res){
+                    echo $this->message('success', 'Element added.');
+               }else{
+                    echo $this->message('error', 'Unable to add element.');
+               }
+          }
           $_POST['submit'] = null;
-          $this->index($id);
+          $this->index($id);          
      }
 }

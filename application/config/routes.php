@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Index';
 $route['liturgy/(:any)'] = 'Liturgy/index/$1';
 $route['liturgy/(:any)/(:any)'] = 'Liturgy/index/$1/$2';
+$route['create/add'] = 'Create/add';
 $route['create/(:any)'] = 'Create/index/$1';
 $route['create/(:any)/(:any)'] = 'Create/index/$1/$2';
 $route['edit/(:any)'] = 'Edit/index/$1';

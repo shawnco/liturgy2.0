@@ -7,7 +7,7 @@
               'class' => 'border form-control btn btn-primary',
               'value' => 'Go'
           );
-          echo form_submit($data);
+          echo form_button($data);
           echo form_close();
           ?>
      </div>

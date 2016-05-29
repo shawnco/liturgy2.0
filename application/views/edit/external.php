@@ -9,7 +9,7 @@
           $data = array(
               'class' => 'border form-control',
               'id' => 'url',
-              'name' => 'url'
+              'name' => 'url[]'
           );
           echo form_input($data);
           ?>

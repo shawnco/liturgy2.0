@@ -23,3 +23,4 @@
           <h1 id='title'><?php echo $title; ?></h1>
      </div>
      <div id='container'>
+          <div class='row' id='message'></div>

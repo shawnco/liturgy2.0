@@ -28,7 +28,7 @@
           $data = array(
               'class' => 'border form-control',
               'id' => 'song_text',
-              'name' => 'song_text',
+              'name' => 'song_text[]',
               'rows' => 10,
               'cols' => 40
           );
@@ -42,7 +42,7 @@
                $data = array(
                    'class' => 'border',
                    'id' => 'upload_image',
-                   'name' => 'upload_image'
+                   'name' => 'upload_image[]'
                );
                echo form_upload($data);
                ?>
@@ -53,7 +53,7 @@
                $data = array(
                    'class' => 'border',
                    'id' => 'upload_music',
-                   'name' => 'upload_music'
+                   'name' => 'upload_music[]'
                );
                echo form_upload($data);
                ?>
