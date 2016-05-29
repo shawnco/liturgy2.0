@@ -83,3 +83,18 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+// Personal constants to hold db table names. Just in case I feel the need to change them.
+defined('CANTICLE') or define('CANTICLE', 'canticle');
+defined('CANTICLE_ANTIPHON') or define('CANTICLE_ANTIPHON', 'canticle_antiphon');
+defined('COLLECT') or define('COLLECT', 'collect');
+defined('CONFESSION') or define('CONFESSION', 'confession');
+defined('ELEMENTS') or define('ELEMENTS', 'elements');
+defined('EXTERNAL') or define('EXTERNAL', 'external');
+defined('HYMN') or define('HYMN', 'hymn');
+defined('PRAYER') or define('PRAYER', 'prayer');
+defined('PSALM') or define('PSALM', 'psalm');
+defined('PSALM_ANTIPHON') or define('PSALM_ANTIPHON', 'psalm_antiphon');
+defined('READING') or define('READING', 'reading');
+defined('RESPONSORY') or define('RESPONSORY', 'responsory');
+defined('VERISCLE') or define('VERISCLE', 'versicle');
