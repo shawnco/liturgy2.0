@@ -1,8 +1,8 @@
 $(document).ready(function(){
      $('#submit').click(function(){
           var request = $.post({
-              url: 'create/add',
-              data: $('form').serialize(),
+              url: 'add',
+              data: $('form').serialize() + '&csrf_test_name=' + $('[name=csrf_test_name]').val(),
               dataType: 'text'
           });
           request.done(function(data){

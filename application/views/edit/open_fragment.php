@@ -1,5 +1,6 @@
 <?php
 echo form_open();
+//echo form_hidden($this->security->get_csrf_token_name, $this->security->get_csrf_hash());
 echo form_hidden('element', $element);
 ?>
 <div class='row'>

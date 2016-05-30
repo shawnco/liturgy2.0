@@ -3,52 +3,48 @@
 class Create extends MY_Controller {
      public function __construct(){
           parent::__construct();
+          $this->load->helper('security');
           $this->load->model('Create_model');
           $this->addStyle('edit.css');
           $this->addScript('create.js');
      }
      
      public function index($id = null){
-          if(null !== $this->input->post('submit')){
-               $this->add();
-          }else{
-               $this->pages = array('edit/open_fragment.php', 'edit/', 'edit/close_fragment.php');
-               $this->data['element'] = $id;
-               $this->data['title'] = 'Create ' . $id;
-               $this->data['types'] = $this->Create_model->getTypes();
-               $this->data['options'] = array('Epiphany', 'Lent', 'Easter', 'Ordinary', 'Advent', 'Christmas');
-               $this->load->helper('form');
-               switch($id){
-                    case 'hymns':
-                    case 'canticles':
-                         $this->song();
-                         break;
-                    case 'collects':
-                    case 'readings':
-                    case 'confessions':
-                         $this->weekly();
-                         break;
-                    case 'prayers':
-                         $this->prayer();
-                         break;
-                    case 'psalms':
-                         $this->psalm();
-                         break;
-                    case 'responsories':
-                    case 'versicles':
-                         $this->preces();
-                         break;
-                    case 'externals';
-                         echo 'YAY';
-                         $this->external();
-                         break;
-                    case 'canticle_antiphons':
-                    case 'psalm_antiphons':
-                         $this->antiphon();
-                         break;
-                    default:
-                         break;
-               }
+          $this->pages = array('edit/open_fragment.php', 'edit/', 'edit/close_fragment.php');
+          $this->data['element'] = $id;
+          $this->data['title'] = 'Create ' . $id;
+          $this->data['types'] = $this->Create_model->getTypes();
+          $this->data['options'] = array('Epiphany', 'Lent', 'Easter', 'Ordinary', 'Advent', 'Christmas');
+          $this->load->helper('form');
+          switch($id){
+               case 'hymns':
+               case 'canticles':
+                    $this->song();
+                    break;
+               case 'collects':
+               case 'readings':
+               case 'confessions':
+                    $this->weekly();
+                    break;
+               case 'prayers':
+                    $this->prayer();
+                    break;
+               case 'psalms':
+                    $this->psalm();
+                    break;
+               case 'responsories':
+               case 'versicles':
+                    $this->preces();
+                    break;
+               case 'externals';
+                    $this->external();
+                    break;
+               case 'canticle_antiphons':
+               case 'psalm_antiphons':
+                    $this->antiphon();
+                    break;
+               default:
+                    break;
           }
      }
      
@@ -78,7 +74,6 @@ class Create extends MY_Controller {
      }
      
      private function external(){
-          echo 'YAY2';
           $this->pages[1] .= 'external.php';
           $this->display($this->pages, $this->data);
      }
@@ -89,7 +84,6 @@ class Create extends MY_Controller {
      }
      
      public function add(){
-          echo $this->message('adding begun');
           $this->load->library('form_validation');
           // Switch to the proper method based on what we're dealing with.
           $id = $this->input->post('element');
@@ -139,16 +133,13 @@ class Create extends MY_Controller {
                     case 'psalm_antiphons':
                          $res = $this->Create_model->addAntiphon(PSALM_ANTIPHON); break;
                     default:
-                         $res = FALSE;
-                         break;
+                         $res = FALSE; break;
                }  
                if($res){
                     echo $this->message('success', 'Element added.');
                }else{
                     echo $this->message('error', 'Unable to add element.');
                }
-          }
-          $_POST['submit'] = null;
-          $this->index($id);          
+          }      
      }
 }

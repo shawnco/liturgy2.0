@@ -66,17 +66,20 @@ class Create_model extends CI_Model {
      }
      
      public function addExternal($type){
-          echo 'YAY4';
           $data = array(
               'name' => $this->input->post('series_name')
           );
           $this->db->insert($type . '_series', $data);
           $id = $this->db->insert_id();
-          $data = array(
-              'series_id' => $id,
-              'url' => $this->input->post('url')
-          );
-          return $this->db->insert($type, $data);
+          $data = array();
+          foreach($this->input->post('url') as $row){
+               $data[] = array(
+                   'series_id' => $id,
+                   'url' => $row
+               );
+          }
+          $this->db->insert_batch($type, $data);
+          return $this->db->affected_rows() > 0;
      }
      
      public function addAntiphon($type){
