@@ -1,3 +1,7 @@
+<?php
+foreach($content as $k => $v){
+     if(is_int($k)){
+?>
 <div class='row'>
      <div class='col-sm-1 song-control-icons'>
           <a href='#' id='add-row'><i class='fa fa-plus-circle' aria-hidden='true'></i></a>
@@ -9,6 +13,7 @@
               'class' => 'border form-control',
               'id' => 'psalm_address',
               'name' => 'psalm_address[]',
+              'value' => $v['psalm_address']
           );
           echo form_input($data);
           ?>
@@ -36,3 +41,7 @@
           ?>
      </div>     
 </div>
+<?php
+     }
+}
+?>

@@ -7,7 +7,7 @@
               'id' => 'season',
               'name' => 'season'
           );
-          echo form_dropdown('season', $options, null, $data);
+          echo form_dropdown('season', $options, $content[0]['season'], $data);
           echo form_label('Week:', 'week');
           $data = array(
               'class' => 'border form-control',
@@ -18,6 +18,10 @@
           ?>
      </div>
 </div>
+<?php
+foreach($content as $k => $v){
+     if(is_int($k)){
+?>
 <div class='row'>
      <div class='col-sm-1 song-control-icons'>
           <a href='#' id='add-row'><i class='fa fa-plus-circle' aria-hidden='true'></i></a>
@@ -30,7 +34,8 @@
               'id' => 'song_text',
               'name' => 'song_text[]',
               'rows' => 10,
-              'cols' => 40
+              'cols' => 40,
+              'value' => $v['song_text']
           );
           echo form_textarea($data);
           ?>
@@ -60,3 +65,7 @@
           </div>
      </div>
 </div>
+<?php
+     }
+}
+?>

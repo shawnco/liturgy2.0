@@ -15,8 +15,23 @@ class Create extends MY_Controller {
           $this->data['title'] = 'Create ' . $id;
           $this->data['types'] = $this->Create_model->getTypes();
           $this->data['options'] = array('Epiphany', 'Lent', 'Easter', 'Ordinary', 'Advent', 'Christmas');
+          // Catch-all dummy that stops the edit views from crying
+          $this->data['content'][0] = array(
+              'url' => '',
+              'season' => '',
+              'week' => '',
+              'song_text' => '',
+              'upload_image' => '',
+              'upload_music' => '',
+              'weekly_text' => '',
+              'text' => '',
+              'psalm_address' => ''
+          );
           $this->load->helper('form');
           switch($id){
+               case 'schemes':
+                    $this->schemes();
+                    break;
                case 'hymns':
                case 'canticles':
                     $this->song();
@@ -46,6 +61,11 @@ class Create extends MY_Controller {
                default:
                     break;
           }
+     }
+     
+     private function schemes(){
+          $this->pages[1] .= 'scheme.php';
+          $this->display($this->pages, $this->data);
      }
      
      private function song(){

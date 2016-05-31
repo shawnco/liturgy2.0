@@ -1,3 +1,7 @@
+<?php
+foreach($content as $k => $v){
+     if(is_int($k)){
+?>
 <div class='col-sm-3'>
      <div class='col-sm-1 song-control-icons'>
           <a href='#' id='add-row'><i class='fa fa-plus-circle' aria-hidden='true'></i></a>
@@ -10,7 +14,8 @@
               'id' => 'weekly_text',
               'name' => 'weekly_text[]',
               'rows' => 5,
-              'cols' => 40
+              'cols' => 40,
+              'value' => $v['weekly_text']
           );
           echo form_textarea($data);
           ?>
@@ -40,3 +45,7 @@
           </div>
      </div>
 </div>
+<?php
+     }
+}
+?>

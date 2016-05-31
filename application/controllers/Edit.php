@@ -8,13 +8,15 @@ class Edit extends MY_Controller {
           $this->addStyle('edit.css');
      }
      
-     public function index($id = null){
+     public function index($type = null, $id = null){
           $this->pages = array('edit/open_fragment.php', 'edit/', 'edit/close_fragment.php');
-          $this->data['element'] = $id;
+          $this->data['element'] = $type;
+          $this->data['id'] = $id;
+          $this->data['content'] = $this->Edit_model->getContent($type, $id);
           $this->data['types'] = $this->Edit_model->getTypes();
           $this->data['options'] = array('Epiphany', 'Lent', 'Easter', 'Ordinary', 'Advent', 'Christmas');
           $this->load->helper('form');
-          switch($id){
+          switch($type){
                case 'hymns':
                case 'canticles':
                     $this->song();
