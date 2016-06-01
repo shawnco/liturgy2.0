@@ -17,6 +17,9 @@ class Edit extends MY_Controller {
           $this->data['options'] = array('Epiphany', 'Lent', 'Easter', 'Ordinary', 'Advent', 'Christmas');
           $this->load->helper('form');
           switch($type){
+               case 'schemes':
+                    $this->scheme();
+                    break;
                case 'hymns':
                case 'canticles':
                     $this->song();
@@ -48,6 +51,10 @@ class Edit extends MY_Controller {
           }
      }
      
+     private function scheme(){
+          $this->pages[1] .= 'scheme.php';
+          $this->display($this->pages, $this->data);
+     }
      private function song(){
           $this->pages[1] .= 'song.php'; 
           $this->display($this->pages, $this->data);

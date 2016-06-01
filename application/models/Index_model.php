@@ -12,7 +12,7 @@ class Index_model extends CI_Model {
     
     public function getEverything(){
          $output = array();
-         $output['Schemes'] = $this->db->get('schemes')->result_array();
+         $output['Schemes'] = $this->db->get('scheme_series')->result_array();
          $output['Canticle Antiphons'] = $this->db->get('canticle_antiphon_series')->result_array();
          $output['Canticles'] = $this->db->get('canticle_series')->result_array();
          $output['Collects'] = $this->db->get('collect_series')->result_array();

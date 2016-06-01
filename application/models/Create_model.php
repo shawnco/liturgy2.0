@@ -16,11 +16,15 @@ class Create_model extends CI_Model {
           );
           $this->db->insert($type . '_series', $data);
           $id = $this->db->insert_id();
-          $data = array(
-              'series_id' => $id,
-              'text' => $this->input->post('song_text')
-          );
-          return $this->db->insert($type, $data);
+          $data = array();
+          foreach($this->input->post('song_text') as $row){
+               $data[] = array(
+                   'series_id' => $id,
+                   'text' => $row
+               );
+          }
+          $this->db->insert_batch($type, $data);
+          return $this->db->affected_rows() > 0;
      }
      
      public function addWeekly($type){
@@ -103,11 +107,15 @@ class Create_model extends CI_Model {
           );
           $this->db->insert($type . '_series', $data);
           $id = $this->db->insert_id();
-          $data = array(
-              'series_id' => $id,
-              'psalm_address' => $this->input->post('psalm_address')
-          );
-          return $this->db->insert($type, $data);
+          $data = array();
+          foreach($this->input->post('psalm_address') as $row){
+               $data[] = array(
+                   'series_id' => $id,
+                   'psalm_address' => $row
+               );
+          }
+          $this->db->insert_batch($type, $data);
+          return $this->db->affected_rows() > 0;
      }
      
      private function uploadImage($type){

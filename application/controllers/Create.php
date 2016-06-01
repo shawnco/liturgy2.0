@@ -25,8 +25,10 @@ class Create extends MY_Controller {
               'upload_music' => '',
               'weekly_text' => '',
               'text' => '',
-              'psalm_address' => ''
+              'psalm_address' => '',
+              'offices' => array()
           );
+          $this->data['content'][0]['offices'][0]['name'] = '';
           $this->load->helper('form');
           switch($id){
                case 'schemes':

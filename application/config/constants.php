@@ -92,6 +92,7 @@ defined('CONFESSION') or define('CONFESSION', 'confession');
 defined('ELEMENTS') or define('ELEMENTS', 'elements');
 defined('EXTERNAL') or define('EXTERNAL', 'external');
 defined('HYMN') or define('HYMN', 'hymn');
+defined('SCHEME') or define('SCHEME', 'scheme');
 defined('PRAYER') or define('PRAYER', 'prayer');
 defined('PSALM') or define('PSALM', 'psalm');
 defined('PSALM_ANTIPHON') or define('PSALM_ANTIPHON', 'psalm_antiphon');

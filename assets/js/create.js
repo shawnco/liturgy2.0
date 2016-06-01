@@ -12,4 +12,5 @@ $(document).ready(function(){
                $('#message').html(result.message);
           });
      });
+     $('#accordion').accordion();
 });

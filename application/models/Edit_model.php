@@ -12,6 +12,7 @@ class Edit_model extends CI_Model {
      
      public function getContent($type, $id){
           switch($type){
+               case 'schemes': $table = SCHEME; break;
                case 'hymns': $table = HYMN; break;
                case 'canticles': $table = CANTICLE; break;
                case 'collects': $table = COLLECT; break;
@@ -30,6 +31,15 @@ class Edit_model extends CI_Model {
           $result = $this->db->get($table)->result_array();
           $this->db->where('id', $id);
           $result['name'] = $this->db->get($table . '_series')->row_array()['name'];
+          
+          if($type === 'schemes'){
+               foreach($result as $k => $v){
+                    if(is_int($k)){
+                         $this->db->where('office_id', $id);
+                         $result[$k]['elements'] = $this->db->get('elements')->result_array();
+                    }
+               }
+          }
           return $result;
      }
 }
