@@ -26,9 +26,17 @@ class Create extends MY_Controller {
               'weekly_text' => '',
               'text' => '',
               'psalm_address' => '',
-              'offices' => array()
+              'name' => '',
+              'office' => array(
+                  'name' => '',
+                  'elements' => array(
+                      'office_id' => '',
+                      'element_type' => '',
+                      'element_series' => '',
+                      'number' => ''
+                  )
+              )
           );
-          $this->data['content'][0]['offices'][0]['name'] = '';
           $this->load->helper('form');
           switch($id){
                case 'schemes':

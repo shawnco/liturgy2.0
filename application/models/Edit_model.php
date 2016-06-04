@@ -36,6 +36,7 @@ class Edit_model extends CI_Model {
                foreach($result as $k => $v){
                     if(is_int($k)){
                          $this->db->where('office_id', $id);
+                         $this->db->where('id', $v['id']);
                          $result[$k]['elements'] = $this->db->get('elements')->result_array();
                     }
                }

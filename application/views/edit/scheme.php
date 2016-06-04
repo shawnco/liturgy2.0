@@ -9,12 +9,22 @@ foreach($content as $k => $v){
           <a href='#' id='remove-row'><i class='fa fa-minus-circle' aria-hidden='true'></i></a>
      </div>
      <div class='col-sm-4 accordion'>
-          <h3><?php echo $v['name']; ?></h3>
+          <h3><?php
+               $data = array(
+                   'id' => 'name-' . $k,
+                   'class' => 'border form-control',
+                   'name' => 'name-' . $k,
+                   'value' => $v['name']
+               );
+               echo form_input($data);?>
+          </h3>
           <div>
                <?php
-               foreach($v['elements'] as $elem){
-                    if(is_int($elem)){
-                         echo '<p>' . $elem['name']  . '</p>';
+               foreach($v['office'] as $officekey => $officeval){
+                    if(is_int($officekey)){
+                         $data = array(
+                             'id' => ''
+                         );
                     }
                }
                ?>
