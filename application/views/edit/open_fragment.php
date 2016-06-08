@@ -1,20 +1,19 @@
 <?php
 echo form_open();
-//echo form_hidden($this->security->get_csrf_token_name, $this->security->get_csrf_hash());
 echo form_hidden('element', $element);
 ?>
 <div class='row'>
-     <div class='col-sm-2'>
-          <?php
-          echo form_label('Series Name:', 'series_name');
-          ?>
+     <div class='col-sm-4'>
+          &nbsp;
      </div>
-     <div class='col-sm-2'>
+     <div class='col-sm-2'>         
           <?php
+          echo form_label('Series Name:', 'series_name');          
           $data = array(
               'id' => 'series_name',
               'name' => 'series_name',
-              'class' => 'border form-control'
+              'class' => 'border form-control',
+              'value' => $content['name']
           );
           echo form_input($data);
           ?>

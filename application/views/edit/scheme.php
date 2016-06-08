@@ -1,5 +1,4 @@
 <?php
-var_dump($content);
 foreach($content as $k => $v){
      if(is_int($k)){
 ?>
@@ -8,7 +7,7 @@ foreach($content as $k => $v){
           <a href='#' id='add-row'><i class='fa fa-plus-circle' aria-hidden='true'></i></a>
           <a href='#' id='remove-row'><i class='fa fa-minus-circle' aria-hidden='true'></i></a>
      </div>
-     <div class='col-sm-4 accordion'>
+     <div class='col-sm-6 accordion'>
           <h3><?php
                $data = array(
                    'id' => 'name-' . $k,
@@ -16,18 +15,38 @@ foreach($content as $k => $v){
                    'name' => 'name-' . $k,
                    'value' => $v['name']
                );
-               echo form_input($data);?>
+               echo form_input($data);
+               ?>
           </h3>
           <div>
+               <p>
                <?php
-               foreach($v['office'] as $officekey => $officeval){
-                    if(is_int($officekey)){
+               foreach($v['elements'] as $elemkey => $elemval){
+                    if(is_int($elemkey)){
+               ?>
+               <a href='#' id='add-element'><i class='fa fa-plus-circle' aria-hidden='true'></i></a>
+               <a href='#' id='remove-element'><i class='fa fa-minus-circle' aria-hidden='true'></i></a>                     
+               <?php
                          $data = array(
-                             'id' => ''
+                             'id' => 'type',
+                             'class' => 'type'
                          );
+                         echo form_dropdown('type', $dropdown, '', $data);
+                         $data = array(
+                             'id' => 'series',
+                             'class' => 'series' 
+                         );
+                         echo form_dropdown('series', array('' => '--------'), '', $data);
+                         $data = array(
+                             'id' => 'number',
+                             'name' => 'number[]',
+                             'class' => 'number'
+                         );
+                         echo form_input($data);
                     }
                }
                ?>
+               </p>
           </div>
      </div>
 </div>

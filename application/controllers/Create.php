@@ -27,15 +27,12 @@ class Create extends MY_Controller {
               'text' => '',
               'psalm_address' => '',
               'name' => '',
-              'office' => array(
-                  'name' => '',
-                  'elements' => array(
-                      'office_id' => '',
-                      'element_type' => '',
-                      'element_series' => '',
-                      'number' => ''
-                  )
-              )
+              'elements' => array(
+                   'office_id' => '',
+                   'element_type' => '',
+                   'element_series' => '',
+                   'number' => ''
+               )
           );
           $this->load->helper('form');
           switch($id){

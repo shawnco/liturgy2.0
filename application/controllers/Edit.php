@@ -6,6 +6,7 @@ class Edit extends MY_Controller {
           $this->load->model('Edit_model');
           $this->data['title'] = 'Edit Page';
           $this->addStyle('edit.css');
+          $this->addScript('create.js');
      }
      
      public function index($type = null, $id = null){
@@ -52,6 +53,11 @@ class Edit extends MY_Controller {
      }
      
      private function scheme(){
+          $this->data['dropdown'] = array();
+          $this->data['dropdown'][''] = '--------';
+          foreach($this->data['types'] as $type){
+               $this->data['dropdown'][$type['id']] = $type['name'];
+          }
           $this->pages[1] .= 'scheme.php';
           $this->display($this->pages, $this->data);
      }
@@ -88,5 +94,10 @@ class Edit extends MY_Controller {
      private function antiphon(){
           $this->pages[1] .= 'antiphon.php';
           $this->display($this->pages, $this->data);
+     }
+     
+     public function getSeries(){
+          $series = $this->input->post('series');
+          echo json_encode($this->Edit_model->getSeries($series));
      }
 }

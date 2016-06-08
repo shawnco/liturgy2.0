@@ -38,10 +38,22 @@ class Edit_model extends CI_Model {
                          $this->db->where('office_id', $id);
                          $this->db->where('id', $v['id']);
                          $result[$k]['elements'] = $this->db->get('elements')->result_array();
+                         $result[$k]['elements'][] = array(
+                              'office_id' => '',
+                              'element_type' => '',
+                              'element_series' => '',
+                              'number' => ''                             
+                         );
                     }
                }
           }
           return $result;
+     }
+     
+     public function getSeries($series){
+          $this->db->where('id', $series);
+          $tb = $this->db->get('type')->row_array()['table_name'];
+          return $this->db->get($tb . '_series')->result_array();
      }
 }
 ?>
