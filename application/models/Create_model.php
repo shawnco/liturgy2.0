@@ -141,7 +141,7 @@ class Create_model extends CI_Model {
                    'series_id' => $id,
                    'name' => $row['name']
                );
-               $this->db->insert($data, 'scheme');
+               $this->db->insert('scheme', $data);
                $officeID = $this->db->insert_id();
                $data = array();
                foreach($row['types'] as $k => $v){

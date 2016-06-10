@@ -1,4 +1,5 @@
 <?php
+var_dump($content);
 foreach($content as $k => $v){
      if(is_int($k)){
 ?>
@@ -19,34 +20,36 @@ foreach($content as $k => $v){
                ?>
           </h3>
           <div>
-               <p>
                <?php
                foreach($v['elements'] as $elemkey => $elemval){
                     if(is_int($elemkey)){
                ?>
-               <a href='#' id='add-element'><i class='fa fa-plus-circle' aria-hidden='true'></i></a>
-               <a href='#' id='remove-element'><i class='fa fa-minus-circle' aria-hidden='true'></i></a>                     
-               <?php
-                         $data = array(
-                             'id' => 'type',
-                             'class' => 'type',
-                         );
-                         echo form_dropdown('scheme[' . $k . '][types][' . $elemkey . ']', $dropdown, '', $data);
-                         $data = array(
-                             'id' => 'series',
-                             'class' => 'series'
-                         );
-                         echo form_dropdown('scheme[' . $k . '][series][' . $elemkey . ']', array('' => '--------'), '', $data);
-                         $data = array(
-                             'id' => 'number',
-                             'name' => 'scheme[' . $k . '][number][' . $elemkey . ']',
-                             'class' => 'number'
-                         );
-                         echo form_input($data);
+                    <p>
+                         <a href='#' id='add-element'><i class='fa fa-plus-circle' aria-hidden='true'></i></a>
+                         <a href='#' id='remove-element'><i class='fa fa-minus-circle' aria-hidden='true'></i></a>                                          <?php
+                                   $data = array(
+                                       'id' => 'type',
+                                       'class' => 'type',
+                                   );
+                                   echo form_dropdown('scheme[' . $k . '][types][' . $elemkey . ']', $dropdown, $elemval['element_type'], $data);
+                                   $data = array(
+                                       'id' => 'series',
+                                       'class' => 'series'
+                                   );
+                                   echo form_dropdown('scheme[' . $k . '][series][' . $elemkey . ']', array('' => '--------'), '', $data);
+                                   $data = array(
+                                       'id' => 'number',
+                                       'name' => 'scheme[' . $k . '][number][' . $elemkey . ']',
+                                       'class' => 'number',
+                                       'value' => $elemval['number']
+                                   );
+                                   echo form_input($data);
+                              }
+                         ?>
+                    </p>
+                    <?php
                     }
-               }
-               ?>
-               </p>
+                    ?>
           </div>
      </div>
 </div>

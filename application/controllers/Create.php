@@ -6,7 +6,6 @@ class Create extends MY_Controller {
           $this->load->helper('security');
           $this->load->model('Create_model');
           $this->addStyle('edit.css');
-          $this->addScript('create.js');
      }
      
      public function index($id = null){
@@ -118,7 +117,6 @@ class Create extends MY_Controller {
      }
      
      public function add(){
-          //var_dump($_POST);
           $this->load->library('form_validation');
           // Switch to the proper method based on what we're dealing with.
           $id = $this->input->post('element');

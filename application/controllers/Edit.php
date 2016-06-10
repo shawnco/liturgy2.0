@@ -6,7 +6,6 @@ class Edit extends MY_Controller {
           $this->load->model('Edit_model');
           $this->data['title'] = 'Edit Page';
           $this->addStyle('edit.css');
-          $this->addScript('create.js');
      }
      
      public function index($type = null, $id = null){

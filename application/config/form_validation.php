@@ -156,25 +156,25 @@ $config = array(
             'label' => 'Series Name',
             'rules' => 'required'
         ),
-        array(
-            'field' => 'scheme[][name]',
-            'label' => 'Office Name',
-            'rules' => 'required'
-        ),
-        array(
-            'field' => 'scheme[][types][]',
-            'label' => 'Element Type',
-            'rules' => 'required|numeric'
-        ),
-        array(
-            'field' => 'scheme[][series][]',
-            'label' => 'Element Series',
-            'rules' => 'required|numeric'
-        ),
-        array(
-            'field' => 'scheme[][number][]',
-            'label' => 'Element Quantity',
-            'rules' => 'required|numeric'
-        )
+//        array(
+//            'field' => 'scheme[][name]',
+//            'label' => 'Office Name',
+//            'rules' => 'required'
+//        ),
+//        array(
+//            'field' => 'scheme[][types][]',
+//            'label' => 'Element Type',
+//            'rules' => 'required|numeric'
+//        ),
+//        array(
+//            'field' => 'scheme[][series][]',
+//            'label' => 'Element Series',
+//            'rules' => 'required|numeric'
+//        ),
+//        array(
+//            'field' => 'scheme[][number][]',
+//            'label' => 'Element Quantity',
+//            'rules' => 'required|numeric'
+//        )
     )
 );
