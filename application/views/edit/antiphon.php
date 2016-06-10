@@ -1,5 +1,6 @@
 <div class='row'>
-     <div class='col-sm-3'>
+     <div class='col-sm-4'>&nbsp;</div>
+     <div class='col-sm-2'>
           <?php
           echo form_label('Season:', 'season');
           $data = array(
@@ -8,11 +9,16 @@
               'name' => 'season'
           );
           echo form_dropdown('season', $options, $content[0]['season'], $data);
+          ?>
+     </div>
+     <div class='col-sm-2'>
+          <?php
           echo form_label('Week:', 'week');
           $data = array(
               'class' => 'border form-control',
               'id' => 'week',
-              'name' => 'week'
+              'name' => 'week',
+              'value' => $content[0]['week']
           );
           echo form_input($data);
           ?>
@@ -35,7 +41,7 @@ foreach($content as $k => $v){
               'name' => 'song_text[]',
               'rows' => 10,
               'cols' => 40,
-              'value' => $v['song_text']
+              'value' => $v['text']
           );
           echo form_textarea($data);
           ?>

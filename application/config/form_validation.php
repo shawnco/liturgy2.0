@@ -3,6 +3,11 @@
 $config = array(
     'antiphon' => array(
         array(
+            'field' => 'series_name',
+            'label' => 'Series Name',
+            'rules' => 'required'
+        ),
+        array(
             'field' => 'season',
             'label' => 'Season',
             'rules' => 'required'
@@ -20,12 +25,22 @@ $config = array(
     ),
     'external' => array(
         array(
+            'field' => 'series_name',
+            'label' => 'Series Name',
+            'rules' => 'required'
+        ),        
+        array(
             'field' => 'url[]',
             'label' => 'URL',
             'rules' => 'required'
         )
     ),
     'prayer' => array(
+        array(
+            'field' => 'series_name',
+            'label' => 'Series Name',
+            'rules' => 'required'
+        ),        
         array(
             'field' => 'weekly_text[]',
             'label' => 'Text',
@@ -43,6 +58,11 @@ $config = array(
         )*/
     ),
     'preces' => array(
+        array(
+            'field' => 'series_name',
+            'label' => 'Series Name',
+            'rules' => 'required'
+        ),        
         array(
             'field' => 'season',
             'label' => 'Season',
@@ -66,6 +86,11 @@ $config = array(
     ),
     'psalm' => array(
         array(
+            'field' => 'series_name',
+            'label' => 'Series Name',
+            'rules' => 'required'
+        ),        
+        array(
             'field' => 'psalm_address[]',
             'label' => 'Psalm Address',
             'rules' => 'required'
@@ -82,6 +107,11 @@ $config = array(
         )*/            
     ),
     'song' => array(
+        array(
+            'field' => 'series_name',
+            'label' => 'Series Name',
+            'rules' => 'required'
+        ),        
         array(
             'field' => 'song_text[]',
             'label' => 'Song Text',
@@ -100,6 +130,11 @@ $config = array(
     ),
     'weekly' => array(
         array(
+            'field' => 'series_name',
+            'label' => 'Series Name',
+            'rules' => 'required'
+        ),        
+        array(
             'field' => 'season',
             'label' => 'Season',
             'rules' => 'required'
@@ -114,5 +149,32 @@ $config = array(
             'label' => 'Week',
             'rules' => 'required|numeric|greater_than[0]|less_than[29]'
         )    
+    ),
+    'scheme' => array(
+        array(
+            'field' => 'series_name',
+            'label' => 'Series Name',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'scheme[][name]',
+            'label' => 'Office Name',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'scheme[][types][]',
+            'label' => 'Element Type',
+            'rules' => 'required|numeric'
+        ),
+        array(
+            'field' => 'scheme[][series][]',
+            'label' => 'Element Series',
+            'rules' => 'required|numeric'
+        ),
+        array(
+            'field' => 'scheme[][number][]',
+            'label' => 'Element Quantity',
+            'rules' => 'required|numeric'
+        )
     )
 );

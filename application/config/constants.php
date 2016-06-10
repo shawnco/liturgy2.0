@@ -98,4 +98,4 @@ defined('PSALM') or define('PSALM', 'psalm');
 defined('PSALM_ANTIPHON') or define('PSALM_ANTIPHON', 'psalm_antiphon');
 defined('READING') or define('READING', 'reading');
 defined('RESPONSORY') or define('RESPONSORY', 'responsory');
-defined('VERISCLE') or define('VERISCLE', 'versicle');
+defined('VERSICLE') or define('VERSICLE', 'versicle');

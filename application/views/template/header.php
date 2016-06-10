@@ -21,6 +21,7 @@
 <body>
      <div id='header'>
           <h1 id='title'><?php echo $title; ?></h1>
+          <p><a id='home-btn' href='<?php echo base_url(); ?>'>Home</a></p>
      </div>
      <div id='container'>
           <div class='row' id='message'></div>

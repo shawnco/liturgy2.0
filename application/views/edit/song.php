@@ -15,7 +15,7 @@ foreach($content as $k => $v){
               'name' => 'song_text[]',
               'rows' => 10,
               'cols' => 40,
-              'value' => $v['song_text']
+              'value' => $v['text']
           );
           echo form_textarea($data);
           ?>

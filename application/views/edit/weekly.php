@@ -7,6 +7,10 @@
               'id' => 'season',
               'name' => 'season'
           );
+          if(!isset($content[0]['season'])){
+               $content[0]['season'] = '';
+               $content[0]['week'] = '';
+          }
           echo form_dropdown('season', $options, $content[0]['season'], $data);
           echo form_label('Week:', 'week');
           $data = array(
@@ -36,7 +40,7 @@ foreach($content as $k => $v){
               'name' => 'weekly_text[]',
               'rows' => 5,
               'cols' => 40,
-              'value' => $v['weekly_text']
+              'value' => $v['text']
           );
           echo form_textarea($data);
           ?>

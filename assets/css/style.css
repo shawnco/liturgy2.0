@@ -9,3 +9,16 @@ body {
      background-color: #3d4047;     
      margin: 0;
 }
+
+#header h1 {
+     display: inline;
+}
+#header p {
+     float: right;
+     margin-right: 10%;
+}
+
+#header p a {
+     color: white;
+     padding-top: 50%;
+}

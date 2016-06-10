@@ -16,6 +16,7 @@ class Create extends MY_Controller {
           $this->data['types'] = $this->Create_model->getTypes();
           $this->data['options'] = array('Epiphany', 'Lent', 'Easter', 'Ordinary', 'Advent', 'Christmas');
           // Catch-all dummy that stops the edit views from crying
+          $this->data['content']['name'] = '';
           $this->data['content'][0] = array(
               'url' => '',
               'season' => '',
@@ -27,12 +28,13 @@ class Create extends MY_Controller {
               'text' => '',
               'psalm_address' => '',
               'name' => '',
-              'elements' => array(
+              'elements' => array()
+          );
+          $this->data['content'][0]['elements'][0] = array(
                    'office_id' => '',
                    'element_type' => '',
                    'element_series' => '',
                    'number' => ''
-               )
           );
           $this->load->helper('form');
           switch($id){
@@ -71,6 +73,11 @@ class Create extends MY_Controller {
      }
      
      private function schemes(){
+          $this->data['dropdown'] = array();
+          $this->data['dropdown'][''] = '--------';
+          foreach($this->data['types'] as $type){
+               $this->data['dropdown'][$type['id']] = $type['name'];
+          }          
           $this->pages[1] .= 'scheme.php';
           $this->display($this->pages, $this->data);
      }
@@ -111,6 +118,7 @@ class Create extends MY_Controller {
      }
      
      public function add(){
+          //var_dump($_POST);
           $this->load->library('form_validation');
           // Switch to the proper method based on what we're dealing with.
           $id = $this->input->post('element');
@@ -128,6 +136,8 @@ class Create extends MY_Controller {
                $validation = 'external';
           }else if(in_array($id, array('canticle_antiphons', 'psalm_antiphons'))){
                $validation = 'antiphon';
+          }else if(in_array($id, array('schemes'))){
+               $validation = 'scheme';
           }else{
                echo $this->message('error', 'Invalid element type!');
           }
@@ -159,6 +169,8 @@ class Create extends MY_Controller {
                          $res = $this->Create_model->addAntiphon(CANTICLE_ANTIPHON); break;
                     case 'psalm_antiphons':
                          $res = $this->Create_model->addAntiphon(PSALM_ANTIPHON); break;
+                    case 'schemes':
+                         $res = $this->Create_model->addScheme(); break;
                     default:
                          $res = FALSE; break;
                }  

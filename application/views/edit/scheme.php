@@ -11,8 +11,8 @@ foreach($content as $k => $v){
           <h3><?php
                $data = array(
                    'id' => 'name-' . $k,
-                   'class' => 'border form-control',
-                   'name' => 'name-' . $k,
+                   'class' => 'border form-control office-name',
+                   'name' => 'scheme[' . $k . '][name]',
                    'value' => $v['name']
                );
                echo form_input($data);
@@ -29,17 +29,17 @@ foreach($content as $k => $v){
                <?php
                          $data = array(
                              'id' => 'type',
-                             'class' => 'type'
+                             'class' => 'type',
                          );
-                         echo form_dropdown('type', $dropdown, '', $data);
+                         echo form_dropdown('scheme[' . $k . '][types][' . $elemkey . ']', $dropdown, '', $data);
                          $data = array(
                              'id' => 'series',
-                             'class' => 'series' 
+                             'class' => 'series'
                          );
-                         echo form_dropdown('series', array('' => '--------'), '', $data);
+                         echo form_dropdown('scheme[' . $k . '][series][' . $elemkey . ']', array('' => '--------'), '', $data);
                          $data = array(
                              'id' => 'number',
-                             'name' => 'number[]',
+                             'name' => 'scheme[' . $k . '][number][' . $elemkey . ']',
                              'class' => 'number'
                          );
                          echo form_input($data);
